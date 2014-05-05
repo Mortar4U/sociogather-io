@@ -1,0 +1,9 @@
+.ircConnectionDlg #inputServerName {
+  width: 70%;
+  display: inline-block;
+}
+
+.ircConnectionDlg #inputServerPort {
+  width: 29%;
+  display: inline-block;
+}

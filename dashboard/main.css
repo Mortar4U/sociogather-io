@@ -1,0 +1,6 @@
+.dashboard > .header {
+  color: #696969;
+  padding: 0px 12px;
+  text-align: right;
+  border-bottom: 2px solid grey;
+}

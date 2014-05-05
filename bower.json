@@ -1,0 +1,28 @@
+{
+  "name": "sociogather-io",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Mortar4u/sociogather-io",
+  "authors": [
+    "Miguel Castillo <manchagnu@gmail.com>"
+  ],
+  "description": "",
+  "main": "main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "",
+    "jquery": "",
+    "backbone": "",
+    "underscore": "",
+    "hash.route": "",
+    "rivets": "",
+    "bootstrap": "3.1.1"
+  }
+}

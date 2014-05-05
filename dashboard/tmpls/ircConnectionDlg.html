@@ -1,0 +1,48 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">irc Connection</h4>
+    </div>
+    <div class="modal-body">
+
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="inputServerName" class="col-sm-2 control-label">Server</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputServerName" placeholder="Server" rv-value="connection:server">
+            <input type="text" class="form-control" id="inputServerPort" placeholder="6667" rv-value="connection:port">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputNickname" class="col-sm-2 control-label">Nickname</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputNickname" placeholder="Nickname" rv-value="connection:nickname">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputFullname" class="col-sm-2 control-label">Full Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputFullname" placeholder="Full Name" rv-value="connection:fullname">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputChannel" class="col-sm-2 control-label">Channels</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputChannel" placeholder="Channels" rv-value="channels:channels">
+          </div>
+        </div>
+
+        <input type="submit" value="Connect" style="position: fixed; right: 1000000px;">
+      </form>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default cancel" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary connect">Connect</button>
+    </div>
+  </div>
+</div>

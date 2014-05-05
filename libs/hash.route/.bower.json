@@ -1,0 +1,30 @@
+{
+  "name": "hash.route",
+  "main": "hash.route.js",
+  "homepage": "https://github.com/MiguelCastillo/hash.route.js",
+  "authors": [
+    "Miguel Castillo <manchagnu@gmail.com>"
+  ],
+  "description": "Simple hash routing system",
+  "keywords": [
+    "route",
+    "router"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "106ca7f327",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "106ca7f3272f237f8c97fda3522c573b3e963ce7"
+  },
+  "_source": "git://github.com/MiguelCastillo/hash.route.js.git",
+  "_target": "*",
+  "_originalSource": "hash.route"
+}
