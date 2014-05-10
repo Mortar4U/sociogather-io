@@ -1,8 +1,8 @@
 define([
-  "text!dashboard/json/ircSettings.json"
-], function(ircSettings) {
+  "text!dashboard/json/settings.json"
+], function(settings) {
 
-  var settings = JSON.parse(ircSettings);
+  settings = JSON.parse(settings);
 
   var Model = Backbone.Model.extend({
     defaults: {
@@ -12,7 +12,7 @@ define([
       fullname: ""
     },
     url: function() {
-      return settings.server + "/connect";
+      return settings.server + "/irc/connect";
     }
   });
 

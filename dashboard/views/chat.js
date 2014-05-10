@@ -1,6 +1,6 @@
 define([
   "text!dashboard/tmpls/chat.html",
-  "common/js/chat",
+  "dashboard/js/chat",
   "css!dashboard/styles/chat.css"
 ], function(tmpl, Chat) {
 

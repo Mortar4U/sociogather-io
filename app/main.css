@@ -12,17 +12,17 @@ body, html {
   box-sizing: border-box;
 }
 
-.appMain {
+.AppMain {
   padding-top: 36px;
   position: relative;
 }
 
-.appMain .counter {
+.AppMain .counter {
   font-size: 12em;
   text-align: center;
 }
 
-.appMain > .header {
+.AppMain > .header {
   font-family: monospace;
   background-color: rgba(240,240,240, 0.9);
   padding: 8px;
@@ -33,5 +33,5 @@ body, html {
   left: 0px;
 }
 
-.appMain > .content {
+.AppMain > .content {
 }

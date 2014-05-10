@@ -1,27 +1,27 @@
 define([
   "text!dashboard/main.html",
-  "dashboard/views/mainMenu",
-  "dashboard/views/ircConnections",
+  "dashboard/views/MainMenu",
+  "dashboard/views/Connections",
+  "common/js/ViewNext",
   "dashboard/views/chat",
   "css!dashboard/main.css"
-], function(tmpl, MainMenuView, ircConnectionsView) {
+], function(MainTmpl, MainMenuView, ConnectionsView, ViewNext) {
 
   function initialize() {
-    this.$el
-      .html(this.template)
-      .addClass("dashboard");
+    ViewNext.prototype.initialize.apply(this, arguments);
 
     this.mainMenuView = new MainMenuView({
       el: this.$el.children(".mainMenuContainer")
     });
 
-    this.ircConnectionsView = new ircConnectionsView({
-      el: this.$el.children(".content")
+    this.connectionsView = new ConnectionsView({
+      el: this.$el.find(".conntectionsContainer")
     });
   }
 
-  return Backbone.View.extend({
-    template: tmpl,
+  return ViewNext.extend({
+    name: "Dashboard",
+    template: MainTmpl,
     initialize: initialize
   });
 

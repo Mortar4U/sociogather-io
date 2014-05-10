@@ -1,29 +1,28 @@
 define([
-  "rivets",
   "text!dashboard/tmpls/ircConnectionDlg.html",
   "dashboard/models/ircConnection",
+  "common/js/ViewNext",
   "css!dashboard/styles/ircConnectionDlg.css"
-], function(rivets, tmpl, ircConnection) {
+], function(ircConnectionDlg, ircConnection, ViewNext) {
 
 
   function initialize() {
+    ViewNext.prototype.initialize.apply(this, arguments);
     var _self = this;
 
     this.$el
-      .html($(this.template))
-      .addClass("modal fade ircConnectionDlg")
+      .addClass("modal fade")
       .modal()
       .on("hidden.bs.modal", function() {
         _self.remove();
       });
+  }
 
-    this.connection = new ircConnection();
-    this.channels = new Backbone.Model({channels:""});
-
-    rivets.bind(this.$el, {
-      connection: this.connection,
-      channels: this.channels
-    });
+  function model() {
+    return {
+      connection: new ircConnection(),
+      channels: new Backbone.Model({channels:""})
+    };
   }
 
 
@@ -33,9 +32,11 @@ define([
   }
 
 
-  return Backbone.View.extend({
-    template: tmpl,
+  return ViewNext.extend({
+    name: "ircConnectionDlg",
+    template: ircConnectionDlg,
     initialize: initialize,
+    model: model,
     events: {
       "click .connect": saveConnection,
       "submit": saveConnection

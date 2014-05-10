@@ -1,17 +1,11 @@
 define([
-  "text!dashboard/tmpls/ircChannels"
-], function(tmpl) {
+  "text!dashboard/tmpls/ircChannels",
+  "common/js/ViewNext"
+], function(ircChannelsTmpl, ViewNext) {
 
-  function initialize() {
-    this.$el
-      .html($(this.template))
-      .addClass("ircChannels");
-  }
-
-
-  return Backbone.View.extend({
-    template: tmpl,
-    initialize: initialize
+  return ViewNext.extend({
+    name: "ircChannels",
+    template: ircChannelsTmpl
   });
 
 });

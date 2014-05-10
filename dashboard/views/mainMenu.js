@@ -1,15 +1,10 @@
 define([
-  "text!dashboard/tmpls/mainMenu.html",
+  "text!dashboard/tmpls/MainMenu.html",
   "dashboard/views/ircConnectionDlg",
   "dashboard/models/ircConnections",
-  "css!dashboard/styles/mainMenu.css"
-], function(tmpl, ircConnectionDlg, ircConnectionsModel) {
-
-  function initialize() {
-    this.$el
-      .html($(this.template))
-      .addClass("mainMenu");
-  }
+  "common/js/ViewNext",
+  "css!dashboard/styles/MainMenu.css"
+], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, ViewNext) {
 
 
   function ircConnection() {
@@ -18,15 +13,16 @@ define([
     }
 
     this.ircConnection = new ircConnectionDlg();
-    this.listenTo(this.ircConnection, "connection", function(connection, channels) {
+    this.listenTo(this.ircConnection, "new:connection", function(connection, channels) {
+      //this.ircConnectionsView = new ircConnectionsView();
       ircConnectionsModel.push(connection);
     });
   }
 
 
-  return Backbone.View.extend({
-    template: tmpl,
-    initialize: initialize,
+  return ViewNext.extend({
+    name: "MainMenu",
+    template: MainMenuTmpl,
     events: {
       "click .ircConnection": ircConnection
     }
