@@ -13,9 +13,11 @@ requirejs.config({
   },
   "shim": {
     "main": {
-      deps: ["common/js/cachebuster"]
+      deps: [
+        "common/js/CacheBuster"
+      ]
     },
-    "common/js/cachebuster": {
+    "common/js/CacheBuster": {
       deps: [
         "rivets",
         "backbone",

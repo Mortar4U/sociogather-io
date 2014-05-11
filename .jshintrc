@@ -6,6 +6,7 @@
   "indent":2,
   "devel":true,
   "globals":{
+    "requirejs": true,
     "require": true,
     "define": true,
     "$": true,

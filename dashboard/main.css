@@ -4,3 +4,7 @@
   text-align: right;
   border-bottom: 2px solid grey;
 }
+
+.Dashboard > .content {
+  padding: 0px 1em;
+}

@@ -3,9 +3,8 @@ define([
   "dashboard/views/ircConnectionDlg",
   "dashboard/models/ircConnections",
   "common/js/RView",
-  "common/js/EventBus",
   "css!dashboard/styles/MainMenu.css"
-], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, RView, EventBus) {
+], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, RView) {
 
 
   function ircConnection() {
@@ -14,9 +13,6 @@ define([
     }
 
     this.ircConnectionDlg = new ircConnectionDlg();
-    this.listenTo(this.ircConnectionDlg, "new:connection", function(connection, channels) {
-      EventBus.trigger("new:connection", connection);
-    });
   }
 
 

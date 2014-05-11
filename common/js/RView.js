@@ -1,7 +1,8 @@
 define([
   "rivets",
   "common/js/rivets.adapters",
-  "common/js/rivets.binders"
+  "common/js/rivets.binders",
+  "common/js/rivets.formatters"
 ], function(rivets) {
   "use strict";
 
