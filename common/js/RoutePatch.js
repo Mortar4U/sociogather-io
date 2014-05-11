@@ -1,11 +1,9 @@
 define([
-
 ], function() {
-
 
   /**
   * Override loadUrl in order to support handling multiple matching URLs
-  * Traditional routes would only process the first.
+  * Traditional routes would only process the first match.
   */
   Backbone.history.loadUrl = function(fragment) {
     fragment = this.fragment = this.getFragment(fragment);
@@ -16,16 +14,15 @@ define([
     });
   };
 
-
   /**
-  * Interface to register route listeners and that will get notified immediately
-  * if the current route matches the registered pattern
+  * Interface to register route listeners that will get notified immediately
+  * if it matches the current route
   */
   Backbone.Router.prototype.register = function(route, callback) {
-    var router = this;
-    var fragment = Backbone.history.getFragment();
+    var router    = this;
+    var fragment  = Backbone.history.getFragment();
     var routeName = route.split(":")[1];
-    var handler = _.invert(router.routes);
+    var handler   = _.invert(router.routes);
 
     router.on(route, callback);
     route = router._routeToRegExp(handler[routeName]);
@@ -34,7 +31,6 @@ define([
       if ( callback ) callback.apply(router, args);
     }
   };
-
 
 });
 
