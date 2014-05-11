@@ -1,0 +1,6 @@
+{
+  "irc": {
+    "module": "dashboard/views/ircConnections",
+    "target": ".Connections"
+  }
+}

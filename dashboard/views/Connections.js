@@ -1,9 +1,15 @@
 define([
   "text!dashboard/tmpls/Connections.html",
   "dashboard/models/Connections",
+  "text!dashboard/json/regions.json",
   "common/js/RView",
-  "common/js/EventBus"
-], function(ConnectionsTmpl, ConnectionsModel, RView, EventBus) {
+  "common/js/EventBus",
+  "common/js/RegionManager"
+], function(ConnectionsTmpl, ConnectionsModel, regions, RView, EventBus, RegionManager) {
+
+
+  // Load regions map
+  regions = JSON.parse(regions);
 
 
   function initialize() {
@@ -12,7 +18,9 @@ define([
 
     // Register listener for new connections
     this.listenTo(EventBus, "new:connection", function(connection) {
-      this.model.connections.add(connection);
+      RegionManager.singleton(regions[connection.get("type")], this).done(function(result) {
+        result.view.model.connections.add(connection);
+      });
     });
   }
 

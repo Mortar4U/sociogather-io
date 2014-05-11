@@ -6,6 +6,7 @@ define([
 
   var Model = Backbone.Model.extend({
     defaults: {
+      type: "irc",
       server: "",
       port: "",
       nickname: "",
