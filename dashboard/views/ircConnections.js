@@ -1,9 +1,9 @@
 define([
   "text!dashboard/tmpls/ircConnections.html",
   "dashboard/models/ircConnections",
-  "common/js/ViewNext",
+  "common/js/RView",
   "css!dashboard/styles/ircConnections.css"
-], function(irConnectionsTmpl, ircConnectionsModel, ViewNext) {
+], function(irConnectionsTmpl, ircConnectionsModel, RView) {
 
 
   function model() {
@@ -13,7 +13,7 @@ define([
   }
 
 
-  return ViewNext.extend({
+  return RView.extend({
     name: "ircConnections",
     template: irConnectionsTmpl,
     model: model

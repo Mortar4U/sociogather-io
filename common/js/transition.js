@@ -1,4 +1,6 @@
 define(function() {
+  "use strict";
+
   function Transition(options) {
     this.options = options;
   }

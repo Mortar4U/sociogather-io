@@ -1,13 +1,13 @@
 define([
   "text!dashboard/tmpls/ircConnectionDlg.html",
   "dashboard/models/ircConnection",
-  "common/js/ViewNext",
+  "common/js/RView",
   "css!dashboard/styles/ircConnectionDlg.css"
-], function(ircConnectionDlg, ircConnection, ViewNext) {
+], function(ircConnectionDlg, ircConnection, RView) {
 
 
   function initialize() {
-    ViewNext.prototype.initialize.apply(this, arguments);
+    RView.prototype.initialize.apply(this, arguments);
     var _self = this;
 
     this.$el
@@ -27,12 +27,12 @@ define([
 
 
   function saveConnection() {
-    this.trigger("connection", this.connection, this.channels);
+    this.trigger("new:connection", this.model.connection, this.model.channels);
     this.$el.modal("hide");
   }
 
 
-  return ViewNext.extend({
+  return RView.extend({
     name: "ircConnectionDlg",
     template: ircConnectionDlg,
     initialize: initialize,

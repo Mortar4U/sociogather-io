@@ -1,14 +1,14 @@
 define([
   "text!app/main.html",
   "app/routes/transition",
-  "common/js/ViewNext",
+  "common/js/RView",
   "css!app/main.css",
   "css!common/css/global.css"
-], function(AppMainTmpl, transition, ViewNext) {
+], function(AppMainTmpl, transition, RView) {
 
 
   function initialize() {
-    ViewNext.prototype.initialize.apply(this, arguments);
+    RView.prototype.initialize.apply(this, arguments);
 
     // Setup the transition route
     transition({
@@ -18,7 +18,7 @@ define([
 
 
   // Return app view constructor
-  return ViewNext.extend({
+  return RView.extend({
     name: "AppMain",
     template: AppMainTmpl,
     initialize: initialize

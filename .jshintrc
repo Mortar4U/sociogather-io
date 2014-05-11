@@ -1,4 +1,5 @@
 {
+  "-W040": true,
   "undef":true,
   "unused":true,
   "curly":true,

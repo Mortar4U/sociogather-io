@@ -1,9 +1,9 @@
 define([
   "text!dashboard/tmpls/ircChannels",
-  "common/js/ViewNext"
-], function(ircChannelsTmpl, ViewNext) {
+  "common/js/RView"
+], function(ircChannelsTmpl, RView) {
 
-  return ViewNext.extend({
+  return RView.extend({
     name: "ircChannels",
     template: ircChannelsTmpl
   });

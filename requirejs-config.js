@@ -7,14 +7,13 @@ requirejs.config({
     "bootstrap": "libs/bootstrap/dist/js/bootstrap",
     "hash.route": "libs/hash.route/hash.route",
     "rivets": "libs/rivets/dist/rivets",
-    "rivets.adapter": "common/js/rivets.adapter",
     "md5": "libs/js/md5",
     "text": "libs/js/require.text",
     "css": "libs/js/require.css"
   },
   "shim": {
     "main": {
-      deps: ["common/js/cachebuster", "rivets.adapter"]
+      deps: ["common/js/cachebuster"]
     },
     "common/js/cachebuster": {
       deps: [
@@ -40,7 +39,6 @@ requirejs.config({
   packages: [
     "app",
     "dashboard",
-    "tests",
-    "yourmodule"
+    "tests"
   ]
 });

@@ -4,9 +4,11 @@ define([
 
   settings = JSON.parse(settings);
 
-  var Model = Backbone.Model.extend({
-    defaults: {
-    },
+  function initialize() {
+  }
+
+  var Model = Backbone.Collection.extend({
+    initialize: initialize,
     url: function() {
       return settings.server + "/connections";
     }

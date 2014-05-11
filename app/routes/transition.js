@@ -18,6 +18,7 @@ define([
         return;
       }
 
+      current = root;
       // Load the root of the URL as a package module
       require([root], function(view) {
         transition.enter(view);

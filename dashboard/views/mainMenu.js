@@ -2,9 +2,10 @@ define([
   "text!dashboard/tmpls/MainMenu.html",
   "dashboard/views/ircConnectionDlg",
   "dashboard/models/ircConnections",
-  "common/js/ViewNext",
+  "common/js/RView",
+  "common/js/EventBus",
   "css!dashboard/styles/MainMenu.css"
-], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, ViewNext) {
+], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, RView, EventBus) {
 
 
   function ircConnection() {
@@ -12,15 +13,14 @@ define([
       this.ircConnection.remove();
     }
 
-    this.ircConnection = new ircConnectionDlg();
-    this.listenTo(this.ircConnection, "new:connection", function(connection, channels) {
-      //this.ircConnectionsView = new ircConnectionsView();
-      ircConnectionsModel.push(connection);
+    this.ircConnectionDlg = new ircConnectionDlg();
+    this.listenTo(this.ircConnectionDlg, "new:connection", function(connection, channels) {
+      EventBus.trigger("new:connection", connection);
     });
   }
 
 
-  return ViewNext.extend({
+  return RView.extend({
     name: "MainMenu",
     template: MainMenuTmpl,
     events: {

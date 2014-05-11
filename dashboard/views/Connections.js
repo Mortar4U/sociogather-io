@@ -1,30 +1,30 @@
 define([
   "text!dashboard/tmpls/Connections.html",
   "dashboard/models/Connections",
-  "common/js/ViewNext",
+  "common/js/RView",
   "common/js/EventBus"
-], function(ConnectionsTmpl, ConnectionsModel, ViewNext, EventBus) {
+], function(ConnectionsTmpl, ConnectionsModel, RView, EventBus) {
 
 
   function initialize() {
     // Call super initialize to properly initilize the view
-    ViewNext.prototype.initialize.apply(this, arguments);
+    RView.prototype.initialize.apply(this, arguments);
 
     // Register listener for new connections
-    EventBus.on("new:connection", function(evt) {
-      console.log(evt);
+    this.listenTo(EventBus, "new:connection", function(connection) {
+      this.model.connections.add(connection);
     });
   }
 
 
   function model() {
     return {
-      connection: new ConnectionsModel()
+      connections: new ConnectionsModel()
     };
   }
 
 
-  return ViewNext.extend({
+  return RView.extend({
     name: "Connections",
     initialize: initialize,
     template: ConnectionsTmpl,
