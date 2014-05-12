@@ -8,11 +8,11 @@ define([
 
 
   function initialize() {
-    RView.prototype.initialize.apply(this, arguments);
     var _self = this;
 
+    RView.prototype.initialize.apply(this, arguments);
+
     this.$el
-      .addClass("modal fade")
       .modal()
       .on("hidden.bs.modal", function() {
         _self.remove();
@@ -35,6 +35,7 @@ define([
 
 
   return RView.extend({
+    cls: "modal fade",
     name: "ircConnectionDlg",
     template: ircConnectionDlg,
     initialize: initialize,
