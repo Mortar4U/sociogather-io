@@ -11,6 +11,11 @@ define([
       .html($(this.template))
       .addClass(this.name);
 
+    if ( this.cls ) {
+      this.$el
+        .addClass( this.cls );
+    }
+
     if ( this.model ) {
       this.model = _.result(this, "model");
       this._rv = rivets.bind(this.$el, {model: this.model});
