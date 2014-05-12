@@ -1,4 +1,6 @@
-<h5>IRC Connections</h5>
-<div rv-each-connection="model:connections">
-  <div rv-html="connection:server" class="server"></div>
-</div>
+<div class="panel-heading">IRC Connections</div>
+<ul class="list-group">
+  <li class="list-group-item" rv-each-connection="model:connections">
+    <span rv-html="connection:server"></span>
+  </li>
+</ul>
