@@ -22,8 +22,17 @@ define([
     instances[content.module] = deferred.promise();
 
     require([content.module], function( View ){
-      var view    = new View();
-      var $target = content.target instanceof jQuery ? content.target : $(target.$el || $(document), content.target);
+      var view     = new View();
+      var $context = target.$el || $(document);
+      var $target  = $context;
+
+      if ( content.target instanceof jQuery ) {
+        $target = content.target;
+      }
+      else if ( content.target ) {
+        $target = $(content.target, $context);
+      }
+
       var result  = {
         view: view,
         content: content,

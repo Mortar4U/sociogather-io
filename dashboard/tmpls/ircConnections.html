@@ -1,6 +1,11 @@
 <div class="panel-heading">IRC Connections</div>
 <ul class="list-group">
   <li class="list-group-item" rv-each-connection="model:connections">
-    <span rv-html="connection:server"></span>:<span rv-html="connection:port"></span>
+    <span rv-html="connection:server"></span><span class="light-hash">:{connection:port}</span>
+    <div class="ircChannels">
+      <span rv-each-channel="connection:channels:items">
+        <span class="light-hash">#</span><a href="#" rv-html="channel"></a>
+      </span>
+    </div>
   </li>
 </ul>

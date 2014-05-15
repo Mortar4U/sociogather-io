@@ -1,3 +1,11 @@
 .ircConnections .connection {
   padding: 4px 12px;
 }
+
+.ircConnections .light-hash {
+  color: #bbb;
+}
+
+.ircConnections .ircChannels {
+  padding: 4px 12px;
+}

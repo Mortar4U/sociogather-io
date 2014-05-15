@@ -1,9 +1,9 @@
 define([
   "dashboard/models/ircChannel"
-], function(ircConnection) {
+], function(ircChannel) {
 
-  var ircChannels = new Backbone.Collection([], {
-    model: ircConnection,
+  var ircChannels = Backbone.Collection.extend({
+    model: ircChannel,
     url: function() {
     }
   });

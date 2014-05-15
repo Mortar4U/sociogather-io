@@ -8,4 +8,14 @@ define([
     }
   };
 
+
+  rivets.formatters["input-array"] = {
+    read: function(value) {
+      return value.join(" ");
+    },
+    publish: function(value) {
+      return value.split(" ");
+    }
+  };
+
 });

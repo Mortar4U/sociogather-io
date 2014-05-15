@@ -1,6 +1,6 @@
 {
   "irc": {
     "module": "dashboard/views/ircConnections",
-    "target": ".Connections"
+    "target": ".container-fluid .row"
   }
 }
