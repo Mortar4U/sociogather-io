@@ -14,7 +14,7 @@ define([
 
 
   return RView.extend({
-    cls: "panel panel-default",
+    className: "panel panel-default",
     name: "ircConnections",
     template: irConnectionsTmpl,
     model: model

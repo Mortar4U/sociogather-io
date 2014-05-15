@@ -8,13 +8,8 @@ define([
 
   function initialize() {
     this.$el
-      .html($(this.template))
+      .html($( _.result(this, "template") ))
       .addClass(this.name);
-
-    if ( this.cls ) {
-      this.$el
-        .addClass( this.cls );
-    }
 
     if ( this.model ) {
       this.model = _.result(this, "model");
