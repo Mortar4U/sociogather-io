@@ -4,7 +4,7 @@ define([
   "dashboard/models/ircConnections",
   "common/js/RView",
   "css!dashboard/styles/MainMenu.css"
-], function(MainMenuTmpl, ircConnectionDlg, ircConnectionsModel, RView) {
+], function(mainMenuTmpl, ircConnectionDlg, ircConnectionsModel, RView) {
 
 
   function ircConnection() {
@@ -14,7 +14,7 @@ define([
 
   return RView.extend({
     name: "MainMenu",
-    template: MainMenuTmpl,
+    template: mainMenuTmpl,
     events: {
       "click .ircConnection": ircConnection
     }

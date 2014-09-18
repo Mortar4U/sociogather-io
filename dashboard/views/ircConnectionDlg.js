@@ -20,7 +20,7 @@ define([
   }
 
 
-  function model() {
+  function modelFactory() {
     return {
       connection: new ircConnectionModel()
     };
@@ -38,7 +38,7 @@ define([
     name: "ircConnectionDlg",
     template: ircConnectionDlgTmpl,
     initialize: initialize,
-    model: model,
+    model: modelFactory,
     events: {
       "click .connect": saveConnection,
       "submit": saveConnection

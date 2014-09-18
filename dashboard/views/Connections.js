@@ -5,7 +5,7 @@ define([
   "common/js/RView",
   "common/js/EventBus",
   "common/js/RegionManager"
-], function(ConnectionsTmpl, ConnectionsModel, regions, RView, EventBus, RegionManager) {
+], function(connectionsTmpl, ConnectionsModel, regions, RView, EventBus, RegionManager) {
 
 
   // Load regions map
@@ -35,7 +35,7 @@ define([
   return RView.extend({
     name: "Connections",
     initialize: initialize,
-    template: ConnectionsTmpl,
+    template: connectionsTmpl,
     model: model
   });
 

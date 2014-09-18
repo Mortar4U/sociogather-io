@@ -6,7 +6,7 @@ define([
 ], function(irConnectionsTmpl, ircConnectionsModel, RView) {
 
 
-  function model() {
+  function modelFactory() {
     return {
       connections: new ircConnectionsModel()
     };
@@ -17,7 +17,7 @@ define([
     className: "panel panel-default",
     name: "ircConnections",
     template: irConnectionsTmpl,
-    model: model
+    model: modelFactory
   });
 
 });
