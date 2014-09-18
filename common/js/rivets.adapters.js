@@ -18,7 +18,7 @@ define([
     }
 
     var typeOf = typeof data;
-    if ( primitiveTypes.hasOwnProperty(typeOf) ) {
+    if (primitiveTypes.hasOwnProperty(typeOf)) {
       return "primitive";
     }
     else if (typeOf === "object") {
@@ -30,23 +30,23 @@ define([
 
 
   function subscription(action, obj, keypath, callback, recurse) {
-    if ( obj instanceof Backbone.Collection ) {
+    if (obj instanceof Backbone.Collection) {
       obj[action]("add remove reset", callback);
     }
-    else if ( obj instanceof Backbone.Model ) {
+    else if (obj instanceof Backbone.Model) {
       obj[action]("change:" + keypath, callback);
     }
-    else if ( recurse !== false && keypath && obj.hasOwnProperty(keypath) ) {
+    else if (recurse !== false && keypath && obj.hasOwnProperty(keypath)) {
       subscription(action, obj[keypath], keypath, callback, false);
     }
   }
 
 
   function read(obj, keypath) {
-    if ( obj instanceof Backbone.Collection ) {
+    if (obj instanceof Backbone.Collection) {
       return obj.models;
     }
-    else if ( obj instanceof Backbone.Model ) {
+    else if (obj instanceof Backbone.Model) {
       return obj.get(keypath);
     }
     //
@@ -54,10 +54,10 @@ define([
     // of through the standard '.' adapter.  Handling that here might make the markup a
     // bit cleaner and consistent
     //
-    else if ( keypath && obj.hasOwnProperty(keypath) ) {
+    else if (keypath && obj.hasOwnProperty(keypath)) {
       //  Let's return the content of the collection so that it can be used directly
       // in iteration contructs such as rv-each-*
-      if ( obj[keypath] instanceof Backbone.Collection ) {
+      if (obj[keypath] instanceof Backbone.Collection) {
         return obj[keypath].models;
       }
 
@@ -74,15 +74,15 @@ define([
     // Also, Backbone Collection are meant to be used as Collection of Models, not
     // Collections of primitives.
     //
-    if ( obj instanceof Backbone.Collection ) {
-      if ( getType(value) === "primitive" ) {
+    if (obj instanceof Backbone.Collection) {
+      if (getType(value) === "primitive") {
         obj.add({value:value});
       }
       else {
         obj.add(value);
       }
     }
-    else if ( obj instanceof Backbone.Model ) {
+    else if (obj instanceof Backbone.Model) {
       obj.set(keypath, value);
     }
     //
@@ -90,7 +90,7 @@ define([
     // of through the standard '.' adapter.  Handling that here might make the markup a
     // bit cleaner and consistent
     //
-    else if ( recurse !== false && keypath && obj.hasOwnProperty(keypath) ) {
+    else if (recurse !== false && keypath && obj.hasOwnProperty(keypath)) {
       write(obj[keypath], keypath, value, false);
     }
   }
@@ -109,7 +109,7 @@ define([
     read: function(obj, keypath) {
       return read(obj, keypath);
     },
-    publish: function( obj, keypath, value ) {
+    publish: function(obj, keypath, value) {
       write(obj, keypath, value);
     }
   };

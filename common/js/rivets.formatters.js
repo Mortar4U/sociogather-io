@@ -3,7 +3,7 @@ define([
 ], function( rivets ) {
 
   rivets.formatters.stringify = function(value) {
-    if ( _.isArray(value) ) {
+    if (_.isArray(value)) {
       return value.join(", ");
     }
   };

@@ -6,7 +6,7 @@ define(function() {
   }
 
   Transition.prototype.show = function (View, options) {
-    if ( this.current ) {
+    if (this.current) {
       // Make sure we clean up the current view
       this.current.trigger("hide");
       this.current.remove();

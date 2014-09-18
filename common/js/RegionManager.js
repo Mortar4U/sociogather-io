@@ -1,11 +1,8 @@
 define([
 ], function() {
 
-  var RegionManager = {};
-
 
   function init(target) {
-    target = target || {};
     target.regions = target.regions || {};
     target.regions.regions = target.regions.regions || {};
     target.regions.singletons = target.regions.singletons || {};
@@ -21,15 +18,15 @@ define([
     var deferred = $.Deferred();
     instances[content.module] = deferred.promise();
 
-    require([content.module], function( View ){
+    require([content.module], function(View){
       var view     = new View();
       var $context = target.$el || $(document);
       var $target  = $context;
 
-      if ( content.target instanceof jQuery ) {
+      if (content.target instanceof jQuery) {
         $target = content.target;
       }
-      else if ( content.target ) {
+      else if (content.target) {
         $target = $(content.target, $context);
       }
 
@@ -48,21 +45,22 @@ define([
   }
 
 
-  function create(/*region, target*/) {
+  function transient(region, target) {
     throw new Error("Not implemented");
   }
 
 
-  function singleton(content, target) {
+  function singleton(region, target) {
     target = target || {};
 
-    if (content.module) {
-      return fromModule(content, target, init(target).singletons);
+    if (region.module) {
+      return fromModule(region, target, init(target).singletons);
     }
   }
 
 
-  RegionManager.create = create;
-  RegionManager.singleton = singleton;
-  return RegionManager;
+  return {
+    transient: transient,
+    singleton: singleton
+  };
 });

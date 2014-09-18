@@ -8,10 +8,10 @@ define([
 
   function initialize() {
     this.$el
-      .html($( _.result(this, "template") ))
+      .html($( _.result(this, "template")))
       .addClass(this.name);
 
-    if ( this.model ) {
+    if (this.model) {
       this.model = _.result(this, "model");
       this._rv = rivets.bind(this.$el, {model: this.model});
     }

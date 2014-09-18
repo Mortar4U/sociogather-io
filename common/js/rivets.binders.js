@@ -3,7 +3,10 @@ define([
 ], function(rivets){
 
   rivets.binders.console = function() {
-    console.log(arguments[1]);
-  };
+    var argi = 0, argc = arguments.length;
 
+    while(argi < argc) {
+      console.log(arguments[argi]);
+    }
+  };
 });
