@@ -8,10 +8,6 @@ define([
 
 
   function ircConnection() {
-    if ( this.ircConnection ) {
-      this.ircConnection.remove();
-    }
-
     this.ircConnectionDlg = new ircConnectionDlg();
   }
 

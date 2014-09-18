@@ -41,6 +41,7 @@ requirejs.config({
   packages: [
     "app",
     "dashboard",
+    "chatter",
     "tests"
   ]
 });

@@ -3,7 +3,6 @@ define([
   "dashboard/views/MainMenu",
   "dashboard/views/Connections",
   "common/js/RView",
-  "dashboard/views/chat",
   "css!dashboard/main.css"
 ], function(MainTmpl, MainMenuView, ConnectionsView, RView) {
 

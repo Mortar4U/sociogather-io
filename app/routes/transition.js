@@ -8,12 +8,16 @@ define([
     hash.navigate("dashboard");
   });
 
+
   function registerRoute(options) {
     // Transition manager
     var transition = new Transition(options);
-
     var current;
-    hash(":root/**").on("change", function(evt, root) {
+
+    function onRouteEnter() {
+    }
+
+    function onRouteChange(evt, root) {
       if ( current === root ) {
         return;
       }
@@ -23,7 +27,16 @@ define([
       require([root], function(view) {
         transition.show(view);
       });
-    });
+    }
+
+    function onRouteLeave() {
+    }
+
+    // Register route change handler
+    hash(":root/**")
+      .on("enter", onRouteEnter)
+      .on("change", onRouteChange)
+      .on("leave", onRouteLeave);
   }
 
   return registerRoute;

@@ -3,7 +3,7 @@
   <li class="list-group-item" rv-each-connection="model:connections">
     <span rv-html="connection:server"></span><span class="light-hash">:{connection:port}</span>
     <div class="ircChannels">
-      <span rv-each-channel="connection:channels:items">
+      <span rv-each-channel="connection:channels">
         <span class="light-hash">#</span><a href="#" rv-html="channel"></a>
       </span>
     </div>

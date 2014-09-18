@@ -5,8 +5,8 @@ define([
   "common/js/RView",
   "common/js/EventBus",
   "css!dashboard/styles/ircConnectionDlg.css"
-], function(ircConnectionDlg, ircConnection, ircChannels, RView, EventBus) {
-
+], function(ircConnectionDlgTmpl, ircConnectionModel, ircChannelsModel, RView, EventBus) {
+  "use strict";
 
   function initialize() {
     RView.prototype.initialize.apply(this, arguments);
@@ -22,14 +22,12 @@ define([
 
   function model() {
     return {
-      connection: new ircConnection(),
-      channels: new Backbone.Model({"items": []})
+      connection: new ircConnectionModel()
     };
   }
 
 
   function saveConnection() {
-    this.model.connection.set("channels", this.model.channels);
     EventBus.trigger("new:connection", this.model.connection);
     this.$el.modal("hide");
   }
@@ -38,7 +36,7 @@ define([
   return RView.extend({
     className: "modal fade",
     name: "ircConnectionDlg",
-    template: ircConnectionDlg,
+    template: ircConnectionDlgTmpl,
     initialize: initialize,
     model: model,
     events: {
